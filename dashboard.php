@@ -116,6 +116,114 @@
                                         <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
                                     </td>
                                     </tr>
+
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Andi</td>
+                                    <td>Minta Ttd</td>
+                                    <td>37</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td>1</td>
+                                    <td>Dyman</td>
+                                    <td>Bimbingan</td>
+                                    <td>36</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                    <td>2</td>
+                                    <td>Mardiman</td>
+                                    <td>Asistensi</td>
+                                    <td>33</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Andi</td>
+                                    <td>Minta Ttd</td>
+                                    <td>37</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Andi</td>
+                                    <td>Minta Ttd</td>
+                                    <td>37</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td>1</td>
+                                    <td>Dyman</td>
+                                    <td>Bimbingan</td>
+                                    <td>36</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                    <td>2</td>
+                                    <td>Mardiman</td>
+                                    <td>Asistensi</td>
+                                    <td>33</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+                                    
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Andi</td>
+                                    <td>Minta Ttd</td>
+                                    <td>37</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
+
+                                    <tr>
+                                    <td>3</td>
+                                    <td>Andi</td>
+                                    <td>Minta Ttd</td>
+                                    <td>37</td>
+                                    <td>11/06/22</td>
+                                    <td>
+                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
+                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                    </td>
+                                    </tr>
                                     
                                     </tbody>
                                     <tfoot>
@@ -182,7 +290,23 @@
     $(function () {
         $("#example1").DataTable({
         "responsive": true,
-        "autoWidth": false
+        "autoWidth": false,
+        "language": {
+            "lengthMenu": "Tampilkan _MENU_ data per halaman",
+            "zeroRecords": "Nothing found - sorry",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "No records available",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search" : "Cari",
+            "paginate": {
+                "previous": "Halaman Sebelumnya",
+                "next": "Selanjutnya"
+            }
+        },
+        "lengthMenu": [
+            [5, 10, 25, -1],
+            [5, 10, 25, 'All'],
+        ],
         });
         $('#example2').DataTable({
         "paging": true,
