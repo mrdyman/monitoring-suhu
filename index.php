@@ -72,11 +72,11 @@
             </h1>
             <div class="text-center text-md-start mt-4">
               <? if(1 == 2) : ?>
-                <a href="{{ route('dashboard') }}" class="btn btn-success-soft shadow lift me-1">
+                <a href="http://localhost/monitoring-suhu/dashboard.php" class="btn btn-success-soft shadow lift me-1">
                   <span class="fe fe-monitor d-none d-md-inline p-0 m-0"></span> Beranda 
                 </a>
               <? else : ?>
-                <a href="{{ route('login') }}" class="btn btn-success-soft  shadow lift me-1">
+                <a href="http://localhost/monitoring-suhu/login.php" class="btn btn-success-soft  shadow lift me-1">
                   <span class="fe fe-log-in d-none d-md-inline p-0 m-0"></span> Masuk 
                 </a>
               <? endif; ?>
