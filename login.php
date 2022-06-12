@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-if($_POST){
-    echo'ok';
-}
+   include("conn.php");
+   session_start();
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      $myusername = $_POST['username'];
+      $mypassword = password_hash($_POST['password'], PASSWORD_DEFAULT );
+      
+      $sql = "SELECT * FROM user WHERE username = '$myusername'";
+      $result = $conn->query($sql);
+      if($result->num_rows > 0){
+        $row = $result->fetch_assoc();
+        if(password_verify($_POST['password'], $row['password'])) {
+            $_SESSION['login_user'] = $myusername;
+            header("location: dashboard.php");
+        } else {
+            $error = "Your Login Name or Password is invalid";
+        }
+        } else {
+            $error = "Username / Password salah";
+        }
+   }
+   else {
+       if(isset($_SESSION['login_user'])) {
+          header("location: dashboard.php");
+       }
+   }
 ?>
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -40,9 +63,16 @@ if($_POST){
     <div class="wrapper wrapper-login shadow-lg">
         <div class="container container-login animated fadeIn">
             <h3 class="text-center">Login</h3>
+            <?php
+            global $error; 
+            if($error) :
+            ?>
             <div class="alert alert-danger">
-                Password Salah
+                <?=$error;?>
             </div>
+            <?php
+            endif;
+            ?>
             <form method="POST">
                 <div class="login-form">
                     <div class="form-group form-floating-label">

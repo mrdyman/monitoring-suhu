@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <?php
+    session_start();
+    ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
@@ -71,15 +74,18 @@
               Selamat Datang di Sistem Monitoring suhu,
             </h1>
             <div class="text-center text-md-start mt-4">
-              <? if(1 == 2) : ?>
+              <?php if(isset($_SESSION['login_user'])) : ?>
                 <a href="http://localhost/monitoring-suhu/dashboard.php" class="btn btn-success-soft shadow lift me-1">
                   <span class="fe fe-monitor d-none d-md-inline p-0 m-0"></span> Beranda 
                 </a>
-              <? else : ?>
+              <?php else : ?>
                 <a href="http://localhost/monitoring-suhu/login.php" class="btn btn-success-soft  shadow lift me-1">
                   <span class="fe fe-log-in d-none d-md-inline p-0 m-0"></span> Masuk 
                 </a>
-              <? endif; ?>
+              <?php endif; ?>
+              <a href="http://localhost/monitoring-suhu/registrasi.php" class="btn btn-dark-soft  shadow lift me-1">
+                  <span class="fe fe-file-plus d-none d-md-inline p-0 m-0"></span> Registrasi 
+                </a>
             </div>
 
           </div>

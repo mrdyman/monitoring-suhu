@@ -1,5 +1,10 @@
 <!doctype html>
 <html lang="en">
+<?php
+   include('session.php');
+   $sql = "SELECT * FROM mahasiswa WHERE isApproved = 0 ORDER BY id ASC";
+   $result = $conn->query($sql);
+?>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -46,7 +51,7 @@
           </button>
           <!-- Button -->
         
-            <a href="http://localhost/monitoring-suhu/" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
+            <a href="http://localhost/monitoring-suhu/logout.php" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
               <span class="fe fe-log-out d-none d-md-inline p-0 m-0"></span> Logout 
             </a>
 
@@ -74,6 +79,7 @@
                                     <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>Stambuk</th>
                                     <th>Keperluan</th>
                                     <th>Suhu</th>
                                     <th>Waktu</th>
@@ -81,155 +87,30 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                      <?php
+                                      $no = 1;
+                                      while($row = $result->fetch_assoc()) : ?>
                                     <tr>
-                                    <td>1</td>
-                                    <td>Dyman</td>
-                                    <td>Bimbingan</td>
-                                    <td>36</td>
-                                    <td>11/06/22</td>
+                                    <td><?= $no ?></td>
+                                    <td> <?= $row['nama']; ?> </td>
+                                    <td> <?= $row['stambuk']; ?> </td>
+                                    <td> <?= $row['keperluan']; ?> </td>
+                                    <td> <?= $row['suhu']; ?> </td>
+                                    <td> <?= $row['waktu']; ?> </td>
                                     <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
+                                        <approve data-approved="1" data-id="<?=$row['id'];?>" id="btn-approve" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</approve>
+                                        <reject data-approved="-1" data-id="<?=$row['id'];?>" id="btn-reject" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</reject>
                                     </td>
                                     </tr>
-                                    
-                                    <tr>
-                                    <td>2</td>
-                                    <td>Mardiman</td>
-                                    <td>Asistensi</td>
-                                    <td>33</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>1</td>
-                                    <td>Dyman</td>
-                                    <td>Bimbingan</td>
-                                    <td>36</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                    <td>2</td>
-                                    <td>Mardiman</td>
-                                    <td>Asistensi</td>
-                                    <td>33</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>1</td>
-                                    <td>Dyman</td>
-                                    <td>Bimbingan</td>
-                                    <td>36</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                    <td>2</td>
-                                    <td>Mardiman</td>
-                                    <td>Asistensi</td>
-                                    <td>33</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
-
-                                    <tr>
-                                    <td>3</td>
-                                    <td>Andi</td>
-                                    <td>Minta Ttd</td>
-                                    <td>37</td>
-                                    <td>11/06/22</td>
-                                    <td>
-                                        <a href="edit.php" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</a>
-                                        <a href="delete.php" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</a>
-                                    </td>
-                                    </tr>
+                                    <?php $no++ ?>
+                                    <?php endwhile; ?>
                                     
                                     </tbody>
                                     <tfoot>
                                     <tr>
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>Stambuk</th>
                                     <th>Keperluan</th>
                                     <th>Suhu</th>
                                     <th>Waktu</th>
@@ -285,10 +166,9 @@
     <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-
     <script>
-    $(function () {
-        $("#example1").DataTable({
+    // $(function () {
+        var table = $("#example1").DataTable({
         "responsive": true,
         "autoWidth": false,
         "language": {
@@ -308,17 +188,8 @@
             [5, 10, 25, 'All'],
         ],
         });
-        $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-        });
-    });
+    // });
 </script>
-
+<script src="assets/js/main.js"></script>
   </body>
 </html>
