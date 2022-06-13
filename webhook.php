@@ -1,8 +1,8 @@
 <?php
 include("conn.php");
 
-$suhu = $_POST['suhu'];
-$waktu = $_POST['waktu'];
+$suhu = $_GET['suhu'];
+$waktu = $_GET['waktu'];
 
 // get latest data in database
 $sql = "SELECT * FROM mahasiswa ORDER BY id DESC LIMIT 1";
