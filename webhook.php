@@ -3,6 +3,9 @@ include("conn.php");
 
 $suhu = $_GET['suhu'];
 $waktu = $_GET['waktu'];
+if(!isset($suhu) && !isset($waktu)){
+  return json_encode("Error, please provide data");
+}
 
 // get latest data in database
 $sql = "SELECT * FROM mahasiswa ORDER BY id DESC LIMIT 1";
