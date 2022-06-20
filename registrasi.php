@@ -50,12 +50,16 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" name="stambuk" id="stambuk" placeholder="Stambuk">
+                    <select class="form-control" name="daftar_sebagai" id="daftar_sebagai">
+                      <option value="">--- Daftar Sebagai ---</option>
+                      <option value="Tamu">Tamu</option>
+                      <option value="Dosen">Dosen</option>
+                      <option value="Mahasiswa">Mahasiswa</option>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <textarea class="form-control" name="keperluan" id="keperluan" cols="30" rows="7" placeholder="Masukkan keperluan / tujuan kamu."></textarea>
+                    <textarea class="form-control mt-3" name="keperluan" id="keperluan" cols="30" rows="7" placeholder="Masukkan keperluan / tujuan kamu."></textarea>
                   </div>
                 </div>  
                 <div class="row">

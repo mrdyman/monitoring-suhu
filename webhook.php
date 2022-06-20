@@ -2,18 +2,19 @@
 include("conn.php");
 
 $suhu = $_GET['suhu'];
-$waktu = $_GET['waktu'];
+$date = new DateTime("now", new DateTimeZone('Asia/Makassar') );
+$waktu = $date->format('Y-m-d H:i:s');
 if(!isset($suhu) && !isset($waktu)){
   return json_encode("Error, please provide data");
 }
 
 // get latest data in database
-$sql = "SELECT * FROM mahasiswa ORDER BY id DESC LIMIT 1";
+$sql = "SELECT * FROM `data` ORDER BY id DESC LIMIT 1";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
-$stambuk = $row['stambuk'];
+$id = $row['id'];
 
-$sqlInsert = " UPDATE mahasiswa SET suhu = '$suhu', waktu = '$waktu' WHERE stambuk = '$stambuk'";
+$sqlInsert = " UPDATE `data` SET suhu = '$suhu', waktu = '$waktu' WHERE id = '$id'";
 if ($conn->query($sqlInsert) === TRUE) {
     echo "Record updated successfully";
   } else {

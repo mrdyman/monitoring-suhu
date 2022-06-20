@@ -1,13 +1,15 @@
 $(".btn-registrasi").on('click', function(){
 	const nama = $("#nama").val();
-	const stambuk = $("#stambuk").val();
+	const daftar_sebagai = $("#daftar_sebagai").val();
 	const keperluan = $("#keperluan").val();
 
 	if ($('#contactForm').length > 0 ) {
 		$( "#contactForm" ).validate( {
 			rules: {
 				nama: "required",
-				stambuk: "required",
+				daftar_sebagai: {
+					required: true,
+				},
 				keperluan: {
 					required: true,
 					minlength: 5
@@ -15,7 +17,7 @@ $(".btn-registrasi").on('click', function(){
 			},
 			messages: {
 				nama: "Mohon masukkan nama",
-				stambuk: "Mohon masukkan stambuk",
+				daftar_sebagai: "Wajib diisi",
 				keperluan: "Mohon masukkan keperluan"
 			},
 			/* submit via ajax */
@@ -28,13 +30,14 @@ $(".btn-registrasi").on('click', function(){
 					dataType : "JSON",
 					data: {
 						nama: nama,
-						stambuk: stambuk,
+						daftar_sebagai: daftar_sebagai,
 						keperluan: keperluan
 					},
 					success: function(response) {
 						if (response.status == 'success') {
 							$("#contactForm").hide(500);
 							$("#form-message-success").show(1500);
+							updateScanStatus();
 						}else{
 							console.log(response);
 							alert("Terjadi Kesalahan!!");
@@ -51,14 +54,14 @@ $(".btn-registrasi").on('click', function(){
 
 $('#example1 tbody').on('click', 'approve', function () {
     var data = table.row($(this).parents('tr')).data();
-	var stambuk = data[2];
+	var id = data[0];
 
 	$.ajax({
 		type: "POST",
 		url: "http://localhost/monitoring-suhu/approve-mahasiswa.php",
 		dataType : "JSON",
 		data: {
-			stambuk: stambuk,
+			id: id,
 			isApproved : 1
 		},
 		success: function(response) {
@@ -74,14 +77,14 @@ $('#example1 tbody').on('click', 'approve', function () {
 
 $('#example1 tbody').on('click', 'reject', function () {
     var data = table.row($(this).parents('tr')).data();
-	var stambuk = data[2];
+	var id = data[0];
 
 	$.ajax({
 		type: "POST",
 		url: "http://localhost/monitoring-suhu/approve-mahasiswa.php",
 		dataType : "JSON",
 		data: {
-			stambuk: stambuk,
+			id: id,
 			isApproved : -1
 		},
 		success: function(response) {
@@ -94,3 +97,16 @@ $('#example1 tbody').on('click', 'reject', function () {
 		}
 	});
 });
+
+function updateScanStatus(){
+	$.ajax({
+		type: "GET",
+		url: "http://localhost/monitoring-suhu/sendScanStatus.php",
+		success: function(response) {
+			console.log('Scan Status updated');
+		},
+		error : function(req, err){
+			console.log('Error'+err);
+		}
+	});
+}

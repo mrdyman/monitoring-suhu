@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
    include('session.php');
-   $sql = "SELECT * FROM mahasiswa WHERE isApproved = 0 ORDER BY id ASC";
+   $sql = "SELECT * FROM `data` ORDER BY id DESC";
    $result = $conn->query($sql);
 ?>
   <head>
@@ -70,7 +70,7 @@
             <div class="row mb-3">
                         <div class="card">
                             <div class="text-center mt-3">
-                                <p><b>Data Mahasiswa</b></p>
+                                <p><b>Data Tamu</b></p>
                                 <hr>
                             </div>
                             <div class="card-body">
@@ -79,11 +79,11 @@
                                     <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Stambuk</th>
+                                    <th>Daftar Sebagai</th>
                                     <th>Keperluan</th>
                                     <th>Suhu</th>
                                     <th>Waktu</th>
-                                    <th>Aksi</th>
+                                    <!-- <th>Aksi</th> -->
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -93,14 +93,14 @@
                                     <tr>
                                     <td><?= $no ?></td>
                                     <td> <?= $row['nama']; ?> </td>
-                                    <td> <?= $row['stambuk']; ?> </td>
+                                    <td> <?= $row['daftar_sebagai']; ?> </td>
                                     <td> <?= $row['keperluan']; ?> </td>
                                     <td> <?= $row['suhu']; ?> </td>
                                     <td> <?= $row['waktu']; ?> </td>
-                                    <td>
+                                    <!-- <td>
                                         <approve data-approved="1" data-id="<?=$row['id'];?>" id="btn-approve" class="btn btn-success btn-sm"><span class="fe fe-check"></span> Setujui</approve>
                                         <reject data-approved="-1" data-id="<?=$row['id'];?>" id="btn-reject" class="btn btn-danger btn-sm"><span class="fe fe-x"></span> Tolak</reject>
-                                    </td>
+                                    </td> -->
                                     </tr>
                                     <?php $no++ ?>
                                     <?php endwhile; ?>
@@ -110,11 +110,11 @@
                                     <tr>
                                     <th>No</th>
                                     <th>Nama</th>
-                                    <th>Stambuk</th>
+                                    <th>Daftar Sebagai</th>
                                     <th>Keperluan</th>
                                     <th>Suhu</th>
                                     <th>Waktu</th>
-                                    <th>Aksi</th>
+                                    <!-- <th>Aksi</th> -->
                                     </tr>
                                     </tfoot>
                                 </table>
