@@ -52,7 +52,7 @@
           </button>
           <!-- Button -->
         
-            <a href="<?=$BASE_URL;?>/logout.php" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
+            <a href="<?=$BASE_URL;?>logout.php" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
               <span class="fe fe-log-out d-none d-md-inline p-0 m-0"></span> Logout 
             </a>
 
