@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <?php
+    include ('env.php');
+    ?>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -72,7 +75,7 @@
 
               <div id="form-message-warning mt-4"></div> 
               <div id="form-message-success">
-                Registrasi berhasil, silahkan melakukan pengecekan Suhu dan menunggu konfirmasi! <br> <a href="http://localhost/monitoring-suhu/registrasi.php"><i class="badge badge-danger">Kembali</i></a>
+                Registrasi berhasil, silahkan melakukan pengecekan Suhu dan menunggu konfirmasi! <br> <a href="<?=$BASE_URL;?>registrasi.php"><i class="badge badge-danger">Kembali</i></a>
               </div>
             </div>
           </div>
