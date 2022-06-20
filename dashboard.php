@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
    include('session.php');
+   include('env.php');
    $sql = "SELECT * FROM `data` ORDER BY id DESC";
    $result = $conn->query($sql);
 ?>
@@ -51,7 +52,7 @@
           </button>
           <!-- Button -->
         
-            <a href="http://localhost/monitoring-suhu/logout.php" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
+            <a href="<?=$BASE_URL;?>/logout.php" class="navbar-btn btn btn-sm btn-success-soft lift ms-auto">
               <span class="fe fe-log-out d-none d-md-inline p-0 m-0"></span> Logout 
             </a>
 

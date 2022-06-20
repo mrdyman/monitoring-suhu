@@ -1,3 +1,4 @@
+const baseURL = 'http://localhost/monitoring-suhu/';
 $(".btn-registrasi").on('click', function(){
 	const nama = $("#nama").val();
 	const daftar_sebagai = $("#daftar_sebagai").val();
@@ -26,7 +27,7 @@ $(".btn-registrasi").on('click', function(){
 				
 				$.ajax({   	
 					type: "POST",
-					url: "http://localhost/monitoring-suhu/registrasi-mahasiswa.php",
+					url: baseURL+"registrasi-mahasiswa.php",
 					dataType : "JSON",
 					data: {
 						nama: nama,
@@ -58,7 +59,7 @@ $('#example1 tbody').on('click', 'approve', function () {
 
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/monitoring-suhu/approve-mahasiswa.php",
+		url: baseURL+"approve-mahasiswa.php",
 		dataType : "JSON",
 		data: {
 			id: id,
@@ -81,7 +82,7 @@ $('#example1 tbody').on('click', 'reject', function () {
 
 	$.ajax({
 		type: "POST",
-		url: "http://localhost/monitoring-suhu/approve-mahasiswa.php",
+		url: baseURL+"approve-mahasiswa.php",
 		dataType : "JSON",
 		data: {
 			id: id,
@@ -101,7 +102,7 @@ $('#example1 tbody').on('click', 'reject', function () {
 function updateScanStatus(){
 	$.ajax({
 		type: "GET",
-		url: "http://localhost/monitoring-suhu/sendScanStatus.php",
+		url: baseURL+"sendScanStatus.php",
 		success: function(response) {
 			console.log('Scan Status updated');
 		},
