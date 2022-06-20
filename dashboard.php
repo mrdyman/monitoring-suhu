@@ -175,12 +175,12 @@
         "language": {
             "lengthMenu": "Tampilkan _MENU_ data per halaman",
             "zeroRecords": "Nothing found - sorry",
-            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_",
+            "info": "Menampilkan Halaman _PAGE_ dari _PAGES_ Halaman",
             "infoEmpty": "No records available",
             "infoFiltered": "(filtered from _MAX_ total records)",
             "search" : "Cari",
             "paginate": {
-                "previous": "Halaman Sebelumnya",
+                "previous": "Sebelumnya",
                 "next": "Selanjutnya"
             }
         },
